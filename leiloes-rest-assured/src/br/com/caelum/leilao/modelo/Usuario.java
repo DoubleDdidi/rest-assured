@@ -3,7 +3,7 @@ package br.com.caelum.leilao.modelo;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Usuario {
+public class Usuario{
 	
 	private Long id;
 	private String nome;
@@ -12,9 +12,12 @@ public class Usuario {
 	public Usuario() {}
 	
 	public Usuario(Long id, String nome, String email) {
-		this.setId(id);
+		this.id = id;
 		this.nome = nome;
 		this.email = email;
+	}
+	public Usuario(String nome, String email) {
+		this(0l, nome, email);
 	}
 
 	public void setNome(String nome) {
@@ -33,10 +36,11 @@ public class Usuario {
 		this.email = email;
 	}
 
+
 	public Long getId() {
 		return id;
 	}
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -77,5 +81,14 @@ public class Usuario {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email
+				+ "]";
+	}
+
+	
+	
 	
 }
